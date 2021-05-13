@@ -25,6 +25,11 @@ class RestAPI{
         return retrofit.create(MasterService::class.java)
     }
 
+    fun getStatiticsAPI() : StatiticsService{
+
+        return retrofit.create(StatiticsService::class.java)
+    }
+
     fun setMasterAPI(name:String){
 
         var newMaster = Master()

@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
             activityUiThread {
 
-                Thread.sleep(2000)
+                Thread.sleep(1000)
 
                 getData()
             }

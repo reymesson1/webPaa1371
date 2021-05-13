@@ -68,12 +68,21 @@ app.post('/addwalletandroidcomment', async(req,res) =>{
  
 	var obj = req.body.nameValuePairs;
 	console.log(obj);
-	// var wallet = await Wallet.findOne()
 
 	var arr2 = wallet.filter(async(elmnt) => { return elmnt.id.indexOf(obj.id) > -1; })[0].details.push(obj)
 
 	console.log(arr2);
 
+	res.send(req.body);
+   
+})
+
+app.get('/walletandroidstatitics', async(req,res) =>{
+
+	var arr2 = wallet.filter(async(elmnt) => { return elmnt.user.indexOf("reymesson") > -1; })
+
+	console.log(arr2);
+ 
 	res.send(req.body);
    
 })

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.myapplication.Model.Master
+import com.example.myapplication.Model.Statitics
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.activity_main4.*
@@ -28,9 +29,10 @@ class MainActivity4 : AppCompatActivity() {
 
             activityUiThread {
 
-                Thread.sleep(2000)
+                Thread.sleep(1000)
 
                 getData()
+                getDataStatitics()
             }
         }
 
@@ -42,6 +44,30 @@ class MainActivity4 : AppCompatActivity() {
 
         }
 
+
+    }
+
+    fun getDataStatitics(){
+
+        var statiticsService = restApi.getStatiticsAPI()
+
+        var call = statiticsService.getStatitics()
+
+        call.enqueue(object : Callback<List<Statitics>>{
+            override fun onFailure(call: Call<List<Statitics>>, t: Throwable) {
+                Log.i("error", t.toString())
+            }
+
+            override fun onResponse(
+                call: Call<List<Statitics>>,
+                response: Response<List<Statitics>>
+            ) {
+
+                Log.i("response", response.body().toString())
+
+            }
+
+        })
 
     }
 
