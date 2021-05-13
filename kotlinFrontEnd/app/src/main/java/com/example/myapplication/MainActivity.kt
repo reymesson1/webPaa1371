@@ -37,6 +37,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        btn_metrics.setOnClickListener{
+
+            var intent = Intent(this, MainActivity4::class.java)
+            startActivity(intent)
+
+        }
+
         btn_add.setOnClickListener {
 
             var item = layoutInflater.inflate(R.layout.layout_add, null)
