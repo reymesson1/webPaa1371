@@ -72,16 +72,6 @@ app.post('/addwalletandroidcomment', async(req,res) =>{
 
 	var arr2 = wallet.filter(async(elmnt) => { return elmnt.id.indexOf(obj.id) > -1; })[0].details.push(obj)
 
-	// var arr2 = wallet.filter(async(elmnt) =>{ console.log(elmnt) });
-	// var arr2 = arr.filter(function(elmnt) { return elmnt.indexOf("a") > -1; }).push("aaa");
-
-	// var master = await Wallet.findOne({},function(err,wallet){
-	//   wallet.details.push(obj.nameValuePairs)
-	//   wallet.save(function(err,m){
-	// 	console.log("Master Comment Updated");
-	//   })
-	// })
-
 	console.log(arr2);
 
 	res.send(req.body);
