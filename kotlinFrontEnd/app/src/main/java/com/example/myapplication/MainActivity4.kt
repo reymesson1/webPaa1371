@@ -31,7 +31,7 @@ class MainActivity4 : AppCompatActivity() {
 
                 Thread.sleep(1000)
 
-                getData()
+//                getData()
                 getDataStatitics()
             }
         }
@@ -63,7 +63,21 @@ class MainActivity4 : AppCompatActivity() {
                 response: Response<List<Statitics>>
             ) {
 
-                Log.i("response", response.body().toString())
+                response.body()!!.forEach { at->
+
+                    var item = layoutInflater.inflate(R.layout.layout_item_metrics, null)
+
+                    item.nameTXT_metrics_user.setText(at.user)
+
+                    item.nameTXT_metrics_post.setText(at.post)
+
+                    item.nameTXT_metrics_comment.setText(at.comment)
+
+
+                    scContentMetrics.addView(item)
+
+
+                }
 
             }
 

@@ -29,7 +29,7 @@ app.get('/wallet', async(req,res)=>{
 	// var wallet = await Wallet.find()
 	// var wallet = await Wallet.find({"name":req.body.nameValuePairs.name})
 
-	console.log(wallet)
+	// console.log(wallet)
 
 	res.send(wallet)
 
@@ -79,11 +79,40 @@ app.post('/addwalletandroidcomment', async(req,res) =>{
 
 app.get('/walletandroidstatitics', async(req,res) =>{
 
-	var arr2 = wallet.filter(async(elmnt) => { return elmnt.user.indexOf("reymesson") > -1; })
+	var reyPost = wallet.filter(async(elmnt) => { return elmnt.user.indexOf("rey") > -1; }).length
+	var reyComment = wallet.filter(async(elmnt) => { return elmnt.user.indexOf("rey") > -1; })[0].details.length
 
-	console.log(arr2);
+	var reymessonPost = wallet.filter(async(elmnt) => { return elmnt.user.indexOf("reymesson") > -1; }).length
+	var reymessonComment = wallet.filter(async(elmnt) => { return elmnt.user.indexOf("reymesson") > -1; })[0].details.length
+
+	var juanperezPost = wallet.filter(async(elmnt) => { return elmnt.user.indexOf("juanperez") > -1; }).length
+	var juanperezComment = wallet.filter(async(elmnt) => { return elmnt.user.indexOf("juanperez") > -1; })[0].details.length
+
+	var obj = [
+		{
+		"id": "1",
+		"date": "05/14/2021",
+		"user": "rey",
+		"post": reyPost,
+		"comment": reyComment
+	},{
+		"id": "2",
+		"date": "05/14/2021",
+		"user": "reymesson",
+		"post": reymessonPost.toString(),
+		"comment": reymessonComment.toString()
+	},{
+		"id": "3",
+		"date": "05/14/2021",
+		"user": "juanperez",
+		"post": juanperezPost,
+		"comment": juanperezComment
+	}]
+
+	console.log(obj);
+
  
-	res.send(req.body);
+	res.send(obj);
    
 })
 
