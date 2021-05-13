@@ -24,6 +24,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+         restApi.username = intent.getStringExtra("username").toString()
+
+
         doAsync {
 
             activityUiThread {
@@ -73,7 +76,9 @@ class MainActivity : AppCompatActivity() {
 
                     var item = layoutInflater.inflate(R.layout.layout_item, null)
 
-                    item.nameTXT.setText(at.name)
+                    item.nameTXT2.setText(at.name)
+
+                    item.nameTXT4.setText(at.user)
 
                     scContent.addView(item)
 

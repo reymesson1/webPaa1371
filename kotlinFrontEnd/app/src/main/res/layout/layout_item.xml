@@ -3,42 +3,57 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#c4c4c4"
     android:orientation="vertical"
     >
 
     <LinearLayout
+        android:background="@drawable/ic_post_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         >
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5"
-            >
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
 
             <TextView
-                android:id="@+id/nameTXT"
+                android:id="@+id/nameTXT2"
+                android:text="Test"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textAlignment="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
         </LinearLayout>
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5"
-            >
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
 
             <TextView
-                android:id="@+id/nameTXT2"
+                android:id="@+id/nameTXT4"
+                android:text="Test"
+                android:textColor="#c4c4c4"
+                android:textSize="20dp"
+                android:textAlignment="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
         </LinearLayout>
 
-
     </LinearLayout>
-
 
 </LinearLayout>

@@ -1,38 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#ffffff"
     tools:context=".MainActivity">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="9">
-
-        <LinearLayout
-            android:id="@+id/scContent"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-
-    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_add"
-            android:text="Add"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="0dp"
+            android:background="#A90000"
+            android:layout_weight="1">
+
+        </LinearLayout>
+
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9">
+
+            <LinearLayout
+                android:id="@+id/scContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"/>
+
+        </ScrollView>
+
 
     </LinearLayout>
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="250dp"
+        android:background="@drawable/ic_add_red_circle"
+        android:layout_width="75dp"
+        android:layout_height="75dp"/>
 
-
-</LinearLayout>
+</FrameLayout>
