@@ -16,6 +16,8 @@ import java.util.*
 
 class RestAPI{
 
+    var username = ""
+
     var retrofit = Retrofit.Builder()
         .baseUrl("http://10.0.0.221:8082")
         .addConverterFactory(GsonConverterFactory.create())
@@ -33,6 +35,7 @@ class RestAPI{
         newMaster.date = Date().toString()
         newMaster.details = emptyArray()
         newMaster.name = name
+        newMaster.user = username
 
         var json = Gson().toJson(newMaster)
 
