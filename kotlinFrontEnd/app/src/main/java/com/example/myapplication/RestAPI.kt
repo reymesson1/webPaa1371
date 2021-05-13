@@ -1,9 +1,12 @@
 package com.example.myapplication
 
 import android.util.Log
+import com.example.myapplication.Model.Comment
 import com.example.myapplication.Model.Master
 import com.example.myapplication.Model.MasterService
+import com.example.myapplication.Model.MasterServicePost
 import com.google.gson.Gson
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,24 +31,26 @@ class RestAPI{
         var newMaster = Master()
         newMaster.id = Date().time.toString()
         newMaster.date = Date().toString()
+        newMaster.details = emptyArray()
         newMaster.name = name
 
         var json = Gson().toJson(newMaster)
 
-        var masterService = retrofit.create(MasterService::class.java)
+        var masterServicePost = retrofit.create(MasterServicePost::class.java)
 
-        var call = masterService.getMaster()
+        var call = masterServicePost.setMaster(JSONObject(json))
 
-        call.enqueue(object : Callback<List<Master>> {
-            override fun onFailure(call: Call<List<Master>>, t: Throwable) {
+        call.enqueue(object : Callback<String>{
+            override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.i("error", t.toString())
             }
 
-            override fun onResponse(call: Call<List<Master>>, response: Response<List<Master>>) {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
                 Log.i("response", response.body().toString())
             }
 
         })
+
 
     }
 

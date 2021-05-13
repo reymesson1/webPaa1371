@@ -32,11 +32,22 @@ app.get('/wallet', async(req,res)=>{
 	res.send(wallet)
 
 })
-
+           
 app.post('/addwalletandroid', async(req,res)=>{ 
 
-	wallet.push(req.body.nameValuePairs);
+	var obj = {
+		id : req.body.nameValuePairs.id,
+		date : req.body.nameValuePairs.date,
+		name: req.body.nameValuePairs.name,
+		details: req.body.nameValuePairs.details.values,
+		user: req.body.nameValuePairs.user
+	}
+
+	wallet.push(obj);
+
+	console.log(obj)
 	
+	console.log(req.body.nameValuePairs.details.values);
 	console.log(req.body.nameValuePairs);
 
 	// var wallet = new Wallet(req.body.nameValuePairs); 

@@ -1,10 +1,14 @@
 package com.example.myapplication
 
+import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AlertDialog
 import com.example.myapplication.Model.Master
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.layout_add.view.*
 import kotlinx.android.synthetic.main.layout_item.view.*
 import org.jetbrains.anko.activityUiThread
 import org.jetbrains.anko.doAsync
@@ -28,6 +32,27 @@ class MainActivity : AppCompatActivity() {
 
                 getData()
             }
+        }
+
+        btn_add.setOnClickListener {
+
+            var item = layoutInflater.inflate(R.layout.layout_add, null)
+
+            var alertDialog = AlertDialog.Builder(this)
+
+            alertDialog.setTitle("New Post")
+
+            alertDialog.setView(item)
+
+            alertDialog.setPositiveButton("Save", DialogInterface.OnClickListener { dialog, which ->
+
+                restApi.setMasterAPI(item.editTXT.text.toString())
+                var intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            })
+
+            alertDialog.show()
+
         }
 
     }
