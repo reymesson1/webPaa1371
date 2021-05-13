@@ -14,8 +14,12 @@ var userController = require('./controller/userController');
 *
 **********/
 
-var wallet = [];
-
+var wallet = [{
+	"id":"1",
+	"name":"title",
+	"details":[],
+	"user": "reymesson"
+}];
 app.post('/login', userController.setLogin);
 
 app.get('/wallet', async(req,res)=>{
