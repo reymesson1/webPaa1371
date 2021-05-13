@@ -29,6 +29,8 @@ app.get('/wallet', async(req,res)=>{
 	// var wallet = await Wallet.find()
 	// var wallet = await Wallet.find({"name":req.body.nameValuePairs.name})
 
+	console.log(wallet)
+
 	res.send(wallet)
 
 })
@@ -64,11 +66,11 @@ app.post('/addwalletandroid', async(req,res)=>{
 app.post('/addwalletandroidcomment', async(req,res) =>{
 
  
-	var obj = req.body;
+	var obj = req.body.nameValuePairs;
 	console.log(obj);
 	// var wallet = await Wallet.findOne()
 
-	var arr2 = wallet.filter(async(elmnt) => { return elmnt.id.indexOf(obj.id) > -1; });
+	var arr2 = wallet.filter(async(elmnt) => { return elmnt.id.indexOf(obj.id) > -1; })[0].details.push(obj)
 
 	// var arr2 = wallet.filter(async(elmnt) =>{ console.log(elmnt) });
 	// var arr2 = arr.filter(function(elmnt) { return elmnt.indexOf("a") > -1; }).push("aaa");

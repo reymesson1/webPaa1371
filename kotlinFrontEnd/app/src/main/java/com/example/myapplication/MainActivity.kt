@@ -82,6 +82,17 @@ class MainActivity : AppCompatActivity() {
 
                     scContent.addView(item)
 
+                    item.setOnClickListener {et->
+
+                        var intent = Intent(this@MainActivity, MainActivity2::class.java)
+                        intent.putExtra("detailsId", at.id)
+                        intent.putExtra("details", at.name)
+
+                        startActivity(intent)
+
+                    }
+
+
                 }
             }
         })

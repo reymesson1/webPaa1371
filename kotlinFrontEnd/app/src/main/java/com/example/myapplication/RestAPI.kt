@@ -1,10 +1,7 @@
 package com.example.myapplication
 
 import android.util.Log
-import com.example.myapplication.Model.Comment
-import com.example.myapplication.Model.Master
-import com.example.myapplication.Model.MasterService
-import com.example.myapplication.Model.MasterServicePost
+import com.example.myapplication.Model.*
 import com.google.gson.Gson
 import org.json.JSONObject
 import retrofit2.Call
@@ -54,6 +51,31 @@ class RestAPI{
 
         })
 
+
+    }
+
+    fun setCommentAPI(id: String,name : String){
+
+        var newComment = Comment()
+        newComment.id = id
+        newComment.comment = name
+
+        var json = Gson().toJson(newComment)
+
+        var commentServicePost = retrofit.create(CommentServicePost::class.java)
+
+        var call = commentServicePost.setComment(JSONObject(json))
+
+        call.enqueue(object : Callback<String>{
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                Log.i("error", t.toString())
+            }
+
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                Log.i("response", response.body().toString())
+            }
+
+        })
 
     }
 
